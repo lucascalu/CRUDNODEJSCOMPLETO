@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD Example</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <h1>CRUD Example</h1>
+
+  <!-- Create Form -->
+  <h2>Create User</h2>
+  <form action="/add" method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Add User</button>
+  </form>
+
+  <!-- Users List -->
+  <h2>Users</h2>
+  <ul>
+    <% users.forEach(user => { %>
+      <li>
+        <strong><%= user.name %></strong> (<%= user.email %>)
+        <a href="/update/<%= user.id %>">Edit</a>
+        <a href="/delete/<%= user.id %>">Delete</a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
